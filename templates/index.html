@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website Uptime Monitor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Website Uptime Monitor</h1>
+      <p class="muted">Last checked: <span id="last-checked">never</span></p>
+    </div>
+    <button id="refresh-btn" type="button">Refresh</button>
+  </header>
+
+  <main>
+    <section class="cards">
+      <div class="card"><span class="label">Total monitored</span><span class="value" id="total">-</span></div>
+      <div class="card up"><span class="label">Up</span><span class="value" id="up">-</span></div>
+      <div class="card down"><span class="label">Down</span><span class="value" id="down">-</span></div>
+    </section>
+
+    <p id="message" class="message" hidden></p>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Website</th>
+            <th>Status</th>
+            <th>HTTP code</th>
+            <th>Response time</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <tr><td colspan="5" class="muted">Loading...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
